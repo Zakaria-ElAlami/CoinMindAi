@@ -12,8 +12,7 @@ export default function Home() {
   const handlePredict = async () => {
     setLoading(true);
     try {
-      const res = axios.get('https://coinmindaibackend.onrender.com//predict/${ticker}');
-      if (res.data.error) {
+        const res = await axios.get(`https://coinmindaibackend.onrender.com/predict/${ticker}`);      if (res.data.error) {
         alert("Symbol not found! Try BTC, ETH, or SOL.");
       } else {
         setData(res.data);
